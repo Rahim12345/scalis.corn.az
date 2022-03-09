@@ -1,0 +1,25 @@
+$colorbg:#E5E5E5;
+
+.footer{
+    background: $colorbg;
+
+    & .container-fluid{
+        padding: 10px 50px 0px 50px;
+    }
+    &_center{
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0px 10px 0;
+
+        .imag{
+            width: auto;
+            height: 30px;
+            display: inline-block;
+
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

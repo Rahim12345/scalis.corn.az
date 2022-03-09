@@ -1,0 +1,172 @@
+.career {
+  background-color: #F1F1F1;
+  min-height: 30vh;
+  position: relative;
+}
+
+.career.fullWidth {
+  width: 100vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  left: 50%;
+  right: 50%;
+  position: relative;
+}
+
+.career .container-fluid .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.career .container-fluid .row .ff8 {
+  margin-top: 4rem;
+}
+
+.career .container-fluid .row .ff8 .career__left a {
+  text-decoration: none;
+  margin-bottom: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 100%;
+}
+
+.career .container-fluid .row .ff8 .career__left a button {
+  border: none;
+  outline: none;
+  background: #fff;
+  color: #949494;
+  font-weight: bold;
+  width: 297px;
+  margin-right: 4rem;
+  height: 63px;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+}
+
+.career .container-fluid .row .ff8 .career__left a button:hover {
+  -webkit-box-shadow: 2px 2px 2px 2px rgba(148, 148, 148, 0.2);
+          box-shadow: 2px 2px 2px 2px rgba(148, 148, 148, 0.2);
+}
+
+.career .container-fluid .row .ff8 .career__right a {
+  text-decoration: none;
+  margin-bottom: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 100%;
+}
+
+.career .container-fluid .row .ff8 .career__right a button {
+  border: none;
+  outline: none;
+  color: #949494;
+  background: #fff;
+  width: 297px;
+  font-weight: bold;
+  height: 63px;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+}
+
+.career .container-fluid .row .ff8 .career__right a button:hover {
+  -webkit-box-shadow: 2px 2px 2px 2px rgba(148, 148, 148, 0.2);
+          box-shadow: 2px 2px 2px 2px rgba(148, 148, 148, 0.2);
+}
+
+.career .container-fluid .row .submit-btn {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin: 3rem 0 5rem 0;
+}
+
+.career .container-fluid .row .submit-btn .frombutton {
+  border: none;
+  border-radius: 0px;
+  background: #02A9FD;
+  font-weight: 600;
+  width: 150px;
+  height: 45px;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.career .container-fluid .row .submit-btn .frombutton.btn-info {
+  color: #fff;
+  background-color: #02A9FD;
+  border-color: #02A9FD;
+}
+
+.career .container-fluid .row .submit-btn .frombutton.hvr-sweep-to-right {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+
+.career .container-fluid .row .submit-btn .frombutton.hvr-sweep-to-right:hover, .career .container-fluid .row .submit-btn .frombutton.hvr-sweep-to-right:active {
+  color: #fff;
+}
+
+.career .container-fluid .row .submit-btn .frombutton.hvr-sweep-to-right::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #f00;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transition-property: transform;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.career .container-fluid .row .submit-btn .frombutton.hvr-sweep-to-right:hover::before, .career .container-fluid .row .submit-btn .frombutton.hvr-sweep-to-right:active::before {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.career .container-fluid .row .submit-btn .frombutton .btn-info:hover {
+  color: #fff;
+  background-color: #f00;
+  border-color: #02A9FD;
+}
+
+.career .container-fluid .row .submit-btn .frombutton .btn-info:active {
+  background-image: none;
+}
+
+.career .container-fluid .row .submit-btn .frombutton .btn {
+  background-image: none;
+  outline: 0;
+}
+/*# sourceMappingURL=career.css.map */

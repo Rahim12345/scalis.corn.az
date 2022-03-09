@@ -1,0 +1,54 @@
+.gida_page{
+    & .container-fluid{
+        padding: 0px 150px 0px 150px;
+    }
+    position: relative;
+    & &_imag{
+        display: flex;
+        justify-content: center;
+    }
+
+    & &_text{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        & h2{
+
+        }
+    }
+}
+
+.gida_page_one{
+    position: relative;
+    padding: 50px 10px 50px 10px;
+
+    & &_textBig{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & h2{
+            font-size: 5rem;
+            font-weight: 600;
+            color: #767676;
+        }
+    }
+
+    & &_imag{
+        display: flex;
+        justify-content: center;
+    }
+
+    & &_text{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        & p{
+            width: 90%;
+        }
+    }
+}
+.contact.ff3{
+    margin-top: 0 !important;
+}

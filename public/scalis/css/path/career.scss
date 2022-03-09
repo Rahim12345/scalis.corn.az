@@ -1,0 +1,150 @@
+$colorF1: #F1F1F1;
+$colorff:#fff;
+$color3:#949494;
+$color4:#02A9FD;
+$colorred:#f00;
+.career{
+    background-color: $colorF1;
+    min-height: 30vh;
+    position: relative;
+    &.fullWidth{
+        width: 100vw;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        left: 50%;
+        right: 50%;
+        position: relative;
+    }
+    & .container-fluid{
+        & .row{
+            display: flex;
+            flex-wrap: wrap;
+            & .ff8{
+                margin-top: 4rem;
+                & .career__left{
+                    & a{
+                        text-decoration: none;
+                        margin-bottom: 2rem;
+                        display: flex;
+                        justify-content: flex-end;
+                        width: 100%;
+                       
+                        & button{
+                            border: none;
+                            outline: none;
+                            background: $colorff;
+                            color: $color3;
+                            font-weight: bold;
+                            width: 297px;
+                            margin-right: 4rem;
+                            height: 63px;
+                            transition: all .4s;
+                            &:hover{
+                                box-shadow: 2px 2px 2px 2px rgba($color: $color3, $alpha: .2);
+                            }   
+                        }
+                    }
+                }
+                & .career__right{
+                    & a{
+                        
+                       
+                        text-decoration: none;
+                        margin-bottom: 2rem;
+                        display: flex;
+                        justify-content: flex-start;
+                       
+                        width: 100%;
+                        & button{
+                            border: none;
+                            outline: none;
+                            color: $color3;
+                            background: $colorff;
+                            width: 297px;
+                            font-weight: bold;
+                            height: 63px;
+                            transition: all .4s;
+                            &:hover{
+                                box-shadow: 2px 2px 2px 2px rgba($color: $color3, $alpha: .2);
+                            } 
+                        }
+                    }
+                }
+               
+            }
+            & .submit-btn{
+                display: inline-block;
+                width: 100%;
+                text-align: center;
+                margin: 3rem 0 5rem 0;
+                & .frombutton{
+                    border: none;
+                    border-radius: 0px;
+                    background:  $color4;
+                    font-weight: 600;
+                    width: 150px;
+                    height: 45px;
+                    font-size: 16px;
+                    text-transform: uppercase;
+                    &.btn-info{
+                        color: $colorff;
+                        background-color: $color4;
+                        border-color:  $color4;
+                    }
+                    &.hvr-sweep-to-right{
+                        display: inline-block;
+                        vertical-align: middle;
+                        transform: translateZ(0);
+                        backface-visibility: hidden;       
+                        position: relative;
+                        transition-property: color;
+                        transition-duration: 0.3s;
+                        &:hover,
+                        &:active{
+                            color: $colorff;
+                        }
+                        &::before{
+                            content: "";
+                            position: absolute;
+                            z-index: -1;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            background: $colorred;
+                            -webkit-transform: scaleX(0);
+                            transform: scaleX(0);
+                            -webkit-transform-origin: 0 50%;
+                            transform-origin: 0 50%;
+                            -webkit-transition-property: transform;
+                            transition-property: transform;
+                            -webkit-transition-duration: 0.3s;
+                            transition-duration: 0.3s;
+                            -webkit-transition-timing-function: ease-out;
+                            transition-timing-function: ease-out;
+                        }
+                        &:hover::before,
+                        &:active::before{
+                            transform: scaleX(1);
+                        }
+                    }
+                    & .btn-info{
+                        &:hover{
+                            color: $colorff;
+                            background-color: $colorred;
+                            border-color: $color4;
+                        }
+
+                        &:active{   
+                            background-image: none;
+                        }
+                    }
+                    & .btn{
+                        background-image: none;
+                        outline: 0;
+                    }
+                }
+            }
+        }
+    }
+}

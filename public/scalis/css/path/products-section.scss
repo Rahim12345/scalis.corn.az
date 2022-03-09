@@ -1,0 +1,96 @@
+$colorc:#F1F1F1;
+$colord:#000;
+$color3:#767676;
+
+.products_section{
+    position: relative;
+    margin-top: 3rem;
+    min-height: 85vh;
+
+    & .container {
+        & .about-text{
+            margin-bottom: 2rem;
+        }
+    }
+
+    .container-fluid{
+        padding: 10px 50px 10px 50px;
+        background-color: $colorc;
+        & .row{
+            & .pro{
+                & .products_section_category{
+                    & h3{
+                        text-transform: uppercase;
+                        color: $color3;
+                        text-align: center;
+                        font-weight: bold;
+                        font-size: 1.7rem;
+                        padding-bottom: 20px;
+                    }
+                }
+            }
+        }
+    }
+    &_category{
+
+        .nav-tabs{
+            display: flex;
+            flex-direction: column;
+            padding: 0px 0px 20px 0px;
+            border-bottom: 1px solid $colord;
+            width: 70%;
+            .nav-link{
+                color: $color3;
+                border: none;
+
+                &.active{
+                    color: $colord;
+                    font-weight: bold;
+                }
+            }
+           
+        }
+        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+            background: transparent;
+            border-color: transparent;
+            text-decoration: underline !important;
+            width: 100%;
+        }
+        &.cat-two{
+            margin-top: 2rem;
+        }
+    }
+    .products-section_body_fra{
+        display: none;
+    }
+    .products_section_body .active{
+        display: flex;
+        justify-content: center;
+    }
+    .products_section_body{
+        &_gallery{
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            overflow: hidden;
+
+            & .imag{
+                padding: 10px;
+                max-width: 300px;
+                position: relative;
+                overflow: hidden;
+
+               
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+
+                p{
+                    color: $color3;
+                }
+            }
+        }
+    }
+
+}

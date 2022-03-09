@@ -1,0 +1,55 @@
+.brend_page {
+  position: relative;
+  min-height: 90vh;
+}
+
+.brend_page .container-fluid {
+  padding: 10px 100px 10px 100px;
+}
+
+.brend_page .container-fluid .ff5 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.brend_page .container-fluid .ff5 a {
+  margin: 10px;
+}
+
+.brend_page .container-fluid .imag {
+  padding: 30px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+.brend_page .container-fluid .imag img {
+  width: 100%;
+  height: auto;
+  min-height: 150px;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.brend_page .container-fluid .imag img:hover {
+  -webkit-filter: none;
+          filter: none;
+}
+/*# sourceMappingURL=brend.css.map */

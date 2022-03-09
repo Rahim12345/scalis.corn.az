@@ -1,0 +1,41 @@
+.brend_page{
+    position: relative;
+    min-height: 90vh;
+    & .container-fluid{
+        padding: 10px 100px 10px 100px;
+       
+
+        & .ff5{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            & a{
+                margin: 10px;
+            }
+        }
+
+        & .imag{
+            padding:30px;
+           
+            align-items: center;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom:20px;
+            background-color:#fff;
+           
+            & img{
+                width: 100%;
+                height: auto;
+                min-height: 150px;
+                filter: grayscale(100%);
+                transition: all .3s;
+
+                &:hover{
+                    filter:none;
+                }
+            }
+        }
+    }
+}

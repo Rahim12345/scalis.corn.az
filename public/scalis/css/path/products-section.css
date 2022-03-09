@@ -1,0 +1,97 @@
+.products_section {
+  position: relative;
+  margin-top: 3rem;
+  min-height: 85vh;
+}
+
+.products_section .container .about-text {
+  margin-bottom: 2rem;
+}
+
+.products_section .container-fluid {
+  padding: 10px 50px 10px 50px;
+  background-color: #F1F1F1;
+}
+
+.products_section .container-fluid .row .pro .products_section_category h3 {
+  text-transform: uppercase;
+  color: #767676;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.7rem;
+  padding-bottom: 20px;
+}
+
+.products_section_category .nav-tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0px 0px 20px 0px;
+  border-bottom: 1px solid #000;
+  width: 70%;
+}
+
+.products_section_category .nav-tabs .nav-link {
+  color: #767676;
+  border: none;
+}
+
+.products_section_category .nav-tabs .nav-link.active {
+  color: #000;
+  font-weight: bold;
+}
+
+.products_section_category .nav-tabs .nav-item.show .nav-link, .products_section_category .nav-tabs .nav-link.active {
+  background: transparent;
+  border-color: transparent;
+  text-decoration: underline !important;
+  width: 100%;
+}
+
+.products_section_category.cat-two {
+  margin-top: 2rem;
+}
+
+.products_section .products-section_body_fra {
+  display: none;
+}
+
+.products_section .products_section_body .active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.products_section .products_section_body_gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.products_section .products_section_body_gallery .imag {
+  padding: 10px;
+  max-width: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.products_section .products_section_body_gallery .imag img {
+  width: 100%;
+  height: 100%;
+}
+
+.products_section .products_section_body_gallery .imag p {
+  color: #767676;
+}
+/*# sourceMappingURL=products-section.css.map */

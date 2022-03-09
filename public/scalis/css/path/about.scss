@@ -1,0 +1,44 @@
+$color1: #4E4E4E;
+$colorff:#fff;
+.about_page{
+    background-color: $colorff;
+    padding: 2rem 0 2rem 0;
+    position: relative;
+
+    .container-fluid{
+        padding: 10px 100px 10px 100px;
+        
+        .row:nth-child(2n){
+            flex-direction: row-reverse;
+        }
+    }
+    & &_imag{
+        width: 50%;
+        float: left;
+        padding: 50px;
+
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    & &_text{
+        width: 50%;
+        float: right;
+        padding: 50px;
+
+        h2{
+            font-weight: 700;
+            color: $color1;
+            font-size: 40px;
+            line-height: 40px;
+            padding: 30px;
+        }
+    }
+}
+.header .header-down .container-fluid .header-right-side .header-menu nav ul li ul li{
+    height: 40px;
+    margin: 0;
+    justify-content: flex-start;
+}
+
