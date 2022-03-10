@@ -33,4 +33,14 @@ class Product extends Model
     {
         return $this->hasOne(SubTwoMenu::class,'sub_two_menu_id','sub_two_menu_id');
     }
+
+    public function getSertifikatlar()
+    {
+        return $this->hasMany(Sertifikat::class,'product_id','id');
+    }
+
+    public function getFiles()
+    {
+        return $this->hasMany(File::class,'product_id','id');
+    }
 }

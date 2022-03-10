@@ -29,6 +29,7 @@ Route::group(['middleware'=>'locale'], function (){
 
     Route::group(['prefix'=>'products'],function (){
         Route::get('{main_menu}', [PagesController::class,'productsMain_menu'])->name('front.products.main_menu');
+        Route::get('{main_menu}/{sub_menu_1}', [PagesController::class,'productsMain_menuSubMenu_1'])->name('front.products.main_menu.sub_menu_1');
     });
 
     Route::get('langs/{locale}',[profileController::class,'langSwitcher'])
@@ -56,7 +57,6 @@ Route::group(['middleware'=>'locale'], function (){
         ->middleware('auth');
 });
 
-
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web']], function () {
     Lfm::routes();
 });
@@ -83,5 +83,8 @@ Route::group(['prefix'=>'admin','middleware'=>['auth', 'locale']],function (){
         Route::resource('sub-one-menu', SubOneMenuController::class);
         Route::resource('sub-two-menu', SubTwoMenuController::class);
         Route::resource('product', ProductController::class);
+        Route::get('product-files/{action}/{id}', [ProductController::class,'productFiles'])->name('back.product.files');
+        Route::post('product-files-post', [ProductController::class,'productFilesPost'])->name('back.product.files.post');
+        Route::get('product-files-delete/{action}/{id}', [ProductController::class,'productFilesDelete'])->name('back.product.files.delete');
     });
 });

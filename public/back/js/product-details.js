@@ -211,24 +211,24 @@ $(document).ready(function () {
         let right_side_image_2          = localStorage.getItem('right_side_image_2');
         let right_side_video            = localStorage.getItem('right_side_video');
         $.ajax({
-           type : 'POST',
-           data : {
-               sub_menu_2 : $('#sub_menu_2').select().val(),
-               capri,
-               agt,
-               brend,
-               seth,
-               reng,
-               en,
-               boy,
-               qalinliq,
-               palet,
-               center_image,
-               right_side_image_1,
-               right_side_image_2,
-               right_side_video,
-               action
-           },
+            type : 'POST',
+            data : {
+                sub_menu_2 : $('#sub_menu_2').select().val(),
+                capri,
+                agt,
+                brend,
+                seth,
+                reng,
+                en,
+                boy,
+                qalinliq,
+                palet,
+                center_image,
+                right_side_image_1,
+                right_side_image_2,
+                right_side_video,
+                action
+            },
             url : '/admin/mehsullar/product',
             success : function (response) {
                 if (action == 0)

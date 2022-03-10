@@ -6,6 +6,7 @@ use App\Models\Contact;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Sertifikat;
 use App\Models\SubTwoMenu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -35,6 +36,8 @@ class ProductController extends Controller
                     return '
 
                 <div class="btn-list flex-nowrap">
+                <a href="'.route('back.product.files',['action'=>'sertifikat','id'=>$row->id]).'" class="btn btn-primary">S</a>
+                <a href="'.route('back.product.files',['action'=>'file','id'=>$row->id]).'" class="btn btn-primary">F</a>
                 <a href="'.route('product.edit',$row->id).'" class="btn btn-primary"><i class="fa fa-pen"></i></a>
                     <a href="javascript:void(0)" class="btn btn-danger productDeleter" data-id="'.$row->id.'" data-bs-toggle="modal" data-bs-target="#modal-danger">
                       <i class="fa fa-times"></i>
@@ -97,18 +100,43 @@ class ProductController extends Controller
     {
         if ($request->action == '0' || $request->action == '1')
         {
-            $this->saveTextPart($request);
+            $newName = $this->saveTextPart($request);
         }
         elseif ($request->action == 'upload_image')
         {
             $newName = $this->saveImagePart($request);
-            return $newName;
         }
         elseif ($request->action == 'upload_video')
         {
             $newName = $this->saveVideoPart($request);
-            return $newName;
         }
+        elseif ($request->action == 'upload_sertifikat_image')
+        {
+            $newName = $this->saveSertifikat($request);
+        }
+        elseif ($request->action == 'sertifikat_sil')
+        {
+            $newName = 'bad';
+            if(File::exists(public_path('files/products/sertifikatlar/'.$request->silinen_sekil)))
+            {
+                File::delete(public_path('files/products/sertifikatlar/'.$request->silinen_sekil));
+                $newName = 'ok';
+            }
+
+        }
+
+        return $newName;
+    }
+
+    public function saveSertifikat($request)
+    {
+        $file       = $request->file('sertifikat');
+        $filename   = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+        $extension  = $file->getClientOriginalExtension();
+        $newName    = $filename . '_' . time() . '.' . $extension;
+        $file->move(public_path('files/products/sertifikatlar'), $newName);
+
+        return $newName.'|||'.$request->name.'|||'.$request->year;
     }
 
     public function saveVideoPart($request)
@@ -340,5 +368,103 @@ class ProductController extends Controller
         return response()->json([
            'message'=>__('static.data_ugurla_silindi')
         ], Response::HTTP_OK);
+    }
+
+    public function productFiles($action, $id)
+    {
+        $product = Product::findOrFail($id);
+        return view('back.pages.products.product-files', compact('product','action','id'));
+    }
+
+    public function productFilesPost(Request $request)
+    {
+        if ($request->action == 'sertifikat')
+        {
+            $this->validate($request,[
+                'name'=>'required|max:191',
+                'year'=>'required',
+                'sertifikat'=>'required|image|mimes:jpg,png,jpeg|max:2048'
+            ],[],[
+                'name'=>'AD',
+                'year'=>'Il',
+                'sertifikat'=>'Sertifikat şəkili'
+            ]);
+
+            $file           = $request->sertifikat;
+            $filename       = pathinfo( $file->getClientOriginalName(), PATHINFO_FILENAME );
+            $extention      = $file->getClientOriginalExtension();
+            $new_name       = $filename . '-' . time() . '.' . $extention;
+
+            $image_resize   = Image::make($file->getRealPath());
+            $image_resize   = $image_resize->orientate();
+            $image_resize->resize(272, null, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+
+            $image_resize->save(public_path('files/products/sertifikatlar/'.$new_name));
+
+            Sertifikat::create([
+                'product_id'=>$request->id,
+                'src'=>$new_name,
+                'name'=>$request->name,
+                'year'=>$request->year
+            ]);
+        }
+        else
+        {
+            $this->validate($request,[
+                'name'=>'required|max:191',
+                'file'=>'required|mimes:pdf|max:2048'
+            ],[],[
+                'name'=>'AD',
+                'file'=>'Fayl'
+            ]);
+
+            $file           = $request->file;
+            $filename       = pathinfo( $file->getClientOriginalName(), PATHINFO_FILENAME );
+            $extention      = $file->getClientOriginalExtension();
+            $new_name       = $filename . '-' . time() . '.' . $extention;
+
+
+            $file->move(public_path('files/products/files/'),$new_name);
+
+            \App\Models\File::create([
+                'product_id'=>$request->id,
+                'name'=>$request->name,
+                'src'=>$new_name,
+            ]);
+        }
+
+        toastSuccess(__('static.data_ugurla_elave_etildi'));
+        return redirect()->back();
+    }
+
+    public function productFilesDelete($action, $id)
+    {
+        if($action == 'sertifikat')
+        {
+            $ser = Sertifikat::findOrFail($id);
+            if(File::exists(public_path('files/products/sertifikatlar/'.$ser->src)))
+            {
+                File::delete('files/products/sertifikatlar/'.$ser->src);
+            }
+
+            $ser->delete();
+        }
+        else
+        {
+            $file = \App\Models\File::findOrFail($id);
+            if(File::exists(public_path('files/products/files/'.$file->src)))
+            {
+                File::delete('files/products/files/'.$file->src);
+            }
+
+            $file->delete();
+        }
+
+
+        toastSuccess(__('static.data_ugurla_silindi'));
+        return redirect()->back();
     }
 }

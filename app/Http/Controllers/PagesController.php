@@ -9,6 +9,8 @@ use App\Mail\ContactEmail;
 use App\Models\About;
 use App\Models\Contact;
 use App\Models\Cv;
+use App\Models\MainMenu;
+use App\Models\SubOneMenu;
 use App\Models\Subscriber;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -151,8 +153,23 @@ class PagesController extends Controller
 
     public function productsMain_menu($main_menu)
     {
+        $main_menu = MainMenu::with('sub_one_menus')->where('slug_az',$main_menu)->orWhere('slug_en',$main_menu)->orWhere('slug_ru',$main_menu)->firstOrFail();
+
         return view('front.pages.products',[
-            'products' => \App\Models\Product::where('main_menu',$main_menu)->get()
+            'main_menus' => \App\Models\MainMenu::all(),
+            'cari'=>$main_menu
+        ]);
+    }
+
+    public function productsMain_menuSubMenu_1($main_menu, $sub_menu_1)
+    {
+        $main_menu = MainMenu::with('sub_one_menus')->where('slug_az',$main_menu)->orWhere('slug_en',$main_menu)->orWhere('slug_ru',$main_menu)->firstOrFail();
+        $sub_menu_1 = SubOneMenu::with('sub_two_menus')->where('slug_az',$sub_menu_1)->orWhere('slug_en',$sub_menu_1)->orWhere('slug_ru',$sub_menu_1)->firstOrFail();
+
+        return view('front.pages.products-sub-menu-1',[
+            'main_menus' => \App\Models\MainMenu::all(),
+            'cari'=>$sub_menu_1,
+            'cari_main'=>$main_menu
         ]);
     }
 }

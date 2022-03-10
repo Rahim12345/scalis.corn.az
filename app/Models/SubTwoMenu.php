@@ -26,4 +26,9 @@ class SubTwoMenu extends Model
     {
         return $this->belongsTo(SubOneMenu::class, 'sub_one_menu_id');
     }
+
+    public function getProducts()
+    {
+        return $this->hasMany(Product::class,'sub_two_menu_id ','sub_two_menu_id ');
+    }
 }

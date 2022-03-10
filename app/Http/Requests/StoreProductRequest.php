@@ -62,12 +62,29 @@ class StoreProductRequest extends FormRequest
                 'action'=>['required',Rule::in(['upload_image','upload_video'])]
             ];
         }
+        elseif ($request->action == 'upload_sertifikat_image')
+        {
+            return [
+                'name'=>'required|max:191',
+                'year'=>'required',
+                'sertifikat'=>'required|image|mimes:jpeg,png,jpg|max:2048',
+            ];
+        }
+        elseif ($request->action == 'sertifikat_sil')
+        {
+            return [
+                'silinen_sekil'=>'required',
+                'action'=>'required'
+            ];
+        }
     }
 
     public function attributes()
     {
         return [
-          'sub_menu_2'=>'Sub Menu 2'
+          'sub_menu_2'=>'Sub Menu 2',
+            'name'=>__('static.name_'.app()->getLocale()),
+            'sertifikat'=>'Sertifikat şəkili'
         ];
     }
 }
